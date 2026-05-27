@@ -104,7 +104,7 @@
         }
 
         .nav-link-c {
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 600;
             color: var(--text);
             text-decoration: none;
@@ -241,7 +241,7 @@
         }
 
         .hero-sub {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #475569;
             line-height: 1.75;
             margin-bottom: 10px;
@@ -336,24 +336,24 @@
         .form-bar {
             position: relative;
             z-index: 10;
-
-            /* moved slightly left + up */
             margin: -240px auto 0 100px;
-
             width: calc(100% - 40px);
             max-width: 1330px;
-
             background: rgba(27, 58, 92, 0.959);
-
             backdrop-filter: blur(20px);
-
             padding: 28px 32px;
-
             border-radius: 20px;
-
             box-shadow: 0 20px 50px rgba(0, 0, 0, .15);
-
             animation: fadeUp .5s .8s both;
+        }
+
+        /* Mobile Fix */
+        @media (max-width: 768px) {
+            .form-bar {
+                margin: -180px auto 0;
+                width: calc(100% - 24px);
+                padding: 22px 18px;
+            }
         }
 
         .form-bar h5 {
@@ -386,7 +386,7 @@
             color: #111827;
             padding: 0 18px;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             outline: none;
             transition: .25s ease;
             width: 100%;
@@ -420,7 +420,7 @@
             border: none;
             border-radius: 12px;
             font-family: 'Poppins', sans-serif;
-            font-size: 0.9rem;
+            font-size: 1rem;
             font-weight: 700;
             cursor: pointer;
             white-space: nowrap;
@@ -1526,7 +1526,7 @@
 ════════════════════════════ -->
     <section class="impact-strip-sec" id="about">
 
-        <div class="container-fluid" style="margin: 20px auto;">
+        <div class="container-fluid">
 
             <!-- heading -->
             <div class="impact-strip-head reveal">
@@ -1675,7 +1675,7 @@
         }
 
         .impact-strip-desc {
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.5;
             color: #1e2127;
         }
@@ -1708,9 +1708,15 @@
 
         /* cleaner paragraph width */
         .impact-item p {
-            color: #003a53c0 !important;
-            font-weight: 500;
+            color: #00202ec0 !important;
             margin: 0 auto;
+        }
+
+        /* para */
+        .impact-item p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         /* item */
@@ -1801,13 +1807,7 @@
             background: linear-gradient(90deg, #ffffff, #4ca9e3, #ffffff);
         }
 
-        /* para */
-        .impact-item p {
-            font-size: .9rem;
-            line-height: 1.4;
-            font-weight: 400;
-            color: #1e2127;
-        }
+
 
         /* tablet */
         @media(max-width:991px) {
@@ -2062,7 +2062,7 @@
         }
 
         .course-desc {
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.6;
             color: #1e2127;
         }
@@ -2670,9 +2670,9 @@
 
         .mbbs-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: 0.85fr 0.85fr 1.3fr;
             gap: 20px;
-            align-items: start;
+            align-items: stretch;
         }
 
         .mbbs-card {
@@ -2680,6 +2680,8 @@
             border-radius: 16px;
             border: 1px solid #dce8f3;
             overflow: hidden;
+            box-shadow: 0px 10px 10px rgba(15, 23, 42, 0.092);
+            transition: all 0.3s ease;
         }
 
         .mbbs-card-head {
@@ -2701,17 +2703,11 @@
         }
 
         .mbbs-col-title {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 600;
             text-transform: uppercase;
             color: #fff;
             margin: 0 0 2px;
-        }
-
-        .mbbs-col-sub {
-            font-size: 12px;
-            color: #7aa4c8;
-            margin: 0;
         }
 
         .mbbs-card-body {
@@ -2730,7 +2726,7 @@
             gap: 8px;
             padding: 7px 0;
             border-bottom: 1px solid #f0f5fa;
-            font-size: 15px;
+            font-size: 16px;
             color: #2d3f50;
         }
 
@@ -2909,9 +2905,11 @@
 
     <style>
         .sc-section {
-            padding: 0px 5%;
-            background: #f8fafc;
+            padding: 20px 5%;
+            background: linear-gradient(180deg, white, white, #1b3a5c);
             margin-bottom: 8%;
+            margin-inline: 20px;
+            border-radius: 20px;
         }
 
         .sc-inner {
@@ -3034,13 +3032,199 @@
 
 
 
-   
+
+
+
+
+
+    <!-- ════════════════════════════
+     ADMISSION PROCESS
+    ════════════════════════════ -->
+    <section class="sec mb-5" id="process">
+        <div class="container">
+            <!-- heading -->
+            <div class="impact-strip-head reveal">
+                <span class="impact-strip-label"> MBBS Admissions</span>
+
+                <h2 class="impact-strip-title">
+                    From NEET Qualification to Medical College <br><span>Admission in 6 Steps</span>
+                </h2>
+
+                <p class="impact-strip-desc">
+                    A step-by-step guide to help you navigate the MBBS admission journey with clarity and confidence.
+
+
+                </p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="tl-wrap">
+                        <div class="tl-line"></div>
+                        <div class="tl-item">
+                            <div class="tl-dot">01</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 01</div>
+                                <div class="tl-title">Qualify NEET-UG</div>
+                                <div class="tl-desc">Appear for the NEET-UG examination and secure the required cutoff
+                                    score to become eligible for MBBS counselling and seat allotment.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot">02</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 02</div>
+                                <div class="tl-title">Understand Eligibility & Admission Pathways</div>
+                                <div class="tl-desc">Review admission criteria, reservation norms, and the available
+                                    admission routes through All India Quota and Karnataka state counselling.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot">03</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 03</div>
+                                <div class="tl-title">Register for Counselling</div>
+                                <div class="tl-desc">Complete the counselling registration process through MCC for All
+                                    India Quota seats or KEA for Karnataka state quota, private, and deemed university
+                                    admissions.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot">04</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 04</div>
+                                <div class="tl-title">Choice Filling & Seat Selection</div>
+                                <div class="tl-desc">Select your preferred medical colleges based on NEET rank, seat
+                                    matrix, fee structure, and counselling preferences to maximise admission
+                                    opportunities.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot">05</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 05</div>
+                                <div class="tl-title">Seat Allotment & Document Verification</div>
+                                <div class="tl-desc">Once a seat is allotted, participate in document verification,
+                                    confirm your admission, and complete the required fee payment formalities.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item" style="padding-bottom:0">
+                            <div class="tl-dot">06</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 06</div>
+                                <div class="tl-title">Report to the Allotted Medical College</div>
+                                <div class="tl-desc">Visit the assigned institution within the given deadline, submit
+                                    original documents, and complete final admission procedures to begin your MBBS
+                                    journey.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div style="position:sticky;top:100px">
+                        <div
+                            style="background:var(--navy);border-radius:var(--rl);padding:36px;color:#fff;margin-bottom:20px">
+                            <div
+                                style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.5;margin-bottom:18px">
+                                Documents Required</div>
+                            <ul style="list-style:none;padding:0;margin:0">
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Class 10 Marks Card / Certificate (for Date of
+                                    Birth proof)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Class 12 Marks Card
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Class 12 Passing Certificate
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Admit Card
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Scorecard / Rank Card
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Application Confirmation Page
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Counselling Registration Slip / Application Form
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Seat Allotment Letter
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Valid Government-issued Photo ID Proof (Aadhaar
+                                    Card / PAN Card / Passport / Voter ID)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Transfer Certificate (TC)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Migration Certificate (for students from boards
+                                    outside Karnataka, if applicable)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Character / Conduct Certificate
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Recent Passport-size Photographs
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Category / Caste Certificate (if applicable)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Income Certificate (if applicable for
+                                    reservation or fee concession)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>EWS Certificate (if applicable)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>PwD Certificate (if applicable)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Domicile / Nativity Certificate (if required for
+                                    state quota admissions)
+                                </li>
+                                <li style="display:flex;align-items:center;gap:10px;padding:7px 0;font-size:1rem"><span
+                                        style="color:#1ABC9C">✓</span>Medi0.9al Fitness Certificate (if required by the
+                                    allotted institution)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
 
     <!-- ════════════════════════════
      TOP COLLEGES
     ════════════════════════════ -->
-    <section class="sec sec-alt my-5" id="colleges" style="background-color: rgb(226, 235, 251) !important;">
+    <section class="sec sec-alt my-5" id="colleges">
         <div class="container">
             <!-- heading -->
             <div class="impact-strip-head reveal">
@@ -3327,192 +3511,12 @@
 
 
 
-     <!-- ════════════════════════════
-     ADMISSION PROCESS
-    ════════════════════════════ -->
-    <section class="sec mb-5" id="process">
-        <div class="container">
-            <!-- heading -->
-            <div class="impact-strip-head reveal">
-                <span class="impact-strip-label"> MBBS Admissions</span>
-
-                <h2 class="impact-strip-title">
-                    From NEET Qualification to Medical College <br><span>Admission in 6 Steps</span>
-                </h2>
-
-                <p class="impact-strip-desc">
-                    A step-by-step guide to help you navigate the MBBS admission journey with clarity and confidence.
-
-
-                </p>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-7">
-                    <div class="tl-wrap">
-                        <div class="tl-line"></div>
-                        <div class="tl-item">
-                            <div class="tl-dot">01</div>
-                            <div class="tl-card">
-                                <div class="tl-step">Step 01</div>
-                                <div class="tl-title">Qualify NEET-UG</div>
-                                <div class="tl-desc">Appear for the NEET-UG examination and secure the required cutoff
-                                    score to become eligible for MBBS counselling and seat allotment.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tl-item">
-                            <div class="tl-dot">02</div>
-                            <div class="tl-card">
-                                <div class="tl-step">Step 02</div>
-                                <div class="tl-title">Understand Eligibility & Admission Pathways</div>
-                                <div class="tl-desc">Review admission criteria, reservation norms, and the available
-                                    admission routes through All India Quota and Karnataka state counselling.</div>
-                            </div>
-                        </div>
-                        <div class="tl-item">
-                            <div class="tl-dot">03</div>
-                            <div class="tl-card">
-                                <div class="tl-step">Step 03</div>
-                                <div class="tl-title">Register for Counselling</div>
-                                <div class="tl-desc">Complete the counselling registration process through MCC for All
-                                    India Quota seats or KEA for Karnataka state quota, private, and deemed university
-                                    admissions.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tl-item">
-                            <div class="tl-dot">04</div>
-                            <div class="tl-card">
-                                <div class="tl-step">Step 04</div>
-                                <div class="tl-title">Choice Filling & Seat Selection</div>
-                                <div class="tl-desc">Select your preferred medical colleges based on NEET rank, seat
-                                    matrix, fee structure, and counselling preferences to maximise admission
-                                    opportunities.</div>
-                            </div>
-                        </div>
-                        <div class="tl-item">
-                            <div class="tl-dot">05</div>
-                            <div class="tl-card">
-                                <div class="tl-step">Step 05</div>
-                                <div class="tl-title">Seat Allotment & Document Verification</div>
-                                <div class="tl-desc">Once a seat is allotted, participate in document verification,
-                                    confirm your admission, and complete the required fee payment formalities.</div>
-                            </div>
-                        </div>
-                        <div class="tl-item" style="padding-bottom:0">
-                            <div class="tl-dot">06</div>
-                            <div class="tl-card">
-                                <div class="tl-step">Step 06</div>
-                                <div class="tl-title">Report to the Allotted Medical College</div>
-                                <div class="tl-desc">Visit the assigned institution within the given deadline, submit
-                                    original documents, and complete final admission procedures to begin your MBBS
-                                    journey.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div style="position:sticky;top:100px">
-                        <div
-                            style="background:var(--navy);border-radius:var(--rl);padding:36px;color:#fff;margin-bottom:20px">
-                            <div
-                                style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.5;margin-bottom:18px">
-                                Documents Required</div>
-                            <ul style="list-style:none;padding:0;margin:0">
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Class 10 Marks Card / Certificate (for Date of
-                                    Birth proof)
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Class 12 Marks Card
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Class 12 Passing Certificate
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Admit Card
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Scorecard / Rank Card
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Application Confirmation Page
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Counselling Registration Slip / Application Form
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Seat Allotment Letter
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Valid Government-issued Photo ID Proof (Aadhaar
-                                    Card / PAN Card / Passport / Voter ID)
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Transfer Certificate (TC)
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Migration Certificate (for students from boards
-                                    outside Karnataka, if applicable)
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Character / Conduct Certificate
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Recent Passport-size Photographs
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Category / Caste Certificate (if applicable)
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Income Certificate (if applicable for
-                                    reservation or fee concession)
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>EWS Certificate (if applicable)
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>PwD Certificate (if applicable)
-                                </li>
-                                <li
-                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Domicile / Nativity Certificate (if required for
-                                    state quota admissions)
-                                </li>
-                                <li style="display:flex;align-items:center;gap:10px;padding:7px 0;font-size:1rem"><span
-                                        style="color:#1ABC9C">✓</span>Medi0.9al Fitness Certificate (if required by the
-                                    allotted institution)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 
 
     <!-- ════════════════════════════
      FAQ
     ════════════════════════════ -->
-    <section class="sec sec-alt" id="faq">
+    <section class="sec " id="faq">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-4">
@@ -3629,7 +3633,7 @@
             nav.classList.toggle('scrolled', window.scrollY > 40);
         });
 
-       
+
 
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
