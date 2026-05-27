@@ -1,0 +1,3686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MBBS Admission</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        /* ═══════════════════════════════════════
+           CSS VARIABLES
+        ═══════════════════════════════════════ */
+        :root {
+            --navy: #1B3A5C;
+            --navy-light: #234876;
+            --blue: #1796e6;
+            --blue2: #1565C0;
+            --blue-light: #7EC8E3;
+            --teal: #1ABC9C;
+            --teal-light: #2ECC71;
+            --sky: #EBF4FB;
+            --sky-mid: #D6EAF8;
+            --sky-deep: #B8D9F0;
+            --off: #f8fafb;
+            --muted: #1e2127;
+            --light: #8AA8C0;
+            --text: #1C2B3A;
+            --border: rgba(0, 0, 0, 0.09);
+            --r: 14px;
+            --rl: 24px;
+            --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow-sm: 0 2px 12px rgba(41, 128, 185, 0.08);
+            --shadow-md: 0 8px 32px rgba(41, 128, 185, 0.13);
+            --shadow-lg: 0 20px 64px rgba(41, 128, 185, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fff;
+            color: var(--text);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--sky);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--blue);
+            border-radius: 4px;
+        }
+
+        /* ═══════════════════════════════════════
+           NAVIGATION
+        ═══════════════════════════════════════ */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 12px 0;
+            transition: all .35s var(--ease);
+            background: #f0f7ff;
+            backdrop-filter: blur(20px);
+        }
+
+        .site-nav.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-brand img {
+            height: 46px;
+            vertical-align: middle;
+        }
+
+        .nav-links-wrap {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-link-c {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            text-decoration: none;
+            transition: color .25s;
+            position: relative;
+        }
+
+        .nav-link-c:hover {
+            color: var(--blue);
+        }
+
+        .btn-nav {
+            background: var(--navy);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 22px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s var(--ease);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-nav:hover {
+            background: var(--blue);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(23, 150, 230, .35);
+            color: #fff;
+        }
+
+        .hbg {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            border: none;
+            background: none;
+        }
+
+        .hbg span {
+            width: 22px;
+            height: 2px;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: all .3s;
+        }
+
+        /* ═══════════════════════════════════════
+           HERO SECTION
+        ═══════════════════════════════════════ */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            background: #f0f7ff;
+            overflow: visible;
+            padding-bottom: 80px;
+        }
+
+        .hero-bg-img {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 90%;
+            background: url('Media/banner1.png') center/cover no-repeat;
+        }
+
+        .hero-bg-img::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, #f0f7ff 5%, rgba(255, 255, 255, 0.727) 40%, transparent 70%);
+        }
+
+        .hero-wrap {
+            max-width: 1380px;
+            margin: 0 auto;
+            padding: 0px 24px 0;
+            position: relative;
+            z-index: 2;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 950px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 50px;
+            padding: 7px 16px;
+            font-size: 0.73rem;
+            font-weight: 700;
+            color: #334155;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            background: #fff;
+            animation: fadeUp .6s .15s both;
+        }
+
+        .hero-h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.2rem, 4.4vw, 4.1rem);
+            font-weight: 600;
+            line-height: 1.13;
+            letter-spacing: -.025em;
+            color: #0f1c2e;
+            margin-bottom: 16px;
+
+            animation: fadeUp .7s .28s both;
+        }
+
+        .hero-h1 .accent {
+            color: var(--blue);
+        }
+
+        .hero-h1-under {
+            width: 56px;
+            height: 4px;
+            background: var(--blue);
+            border-radius: 2px;
+            margin-bottom: 20px;
+            animation: fadeUp .5s .42s both;
+        }
+
+        .hero-sub {
+            font-size: 0.9rem;
+            color: #475569;
+            line-height: 1.75;
+            margin-bottom: 10px;
+            animation: fadeUp .6s .45s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            animation: fadeUp .6s .65s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 50px;
+            padding: 7px 6px 7px 24px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .2s;
+            box-shadow: 0 4px 14px rgba(23, 150, 230, .28);
+        }
+
+        .btn-primary:hover {
+            background: #1565C0;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(23, 150, 230, .35);
+            color: #fff;
+        }
+
+        .btn-primary .btn-arrow {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary .btn-arrow svg {
+            color: var(--blue);
+            width: 16px;
+            height: 16px;
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            color: #1a2b3c;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 50px;
+            padding: 10px 22px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: #94a3b8;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .07);
+            color: #1a2b3c;
+        }
+
+        .btn-ghost .btn-arrow2 {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1.5px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-ghost .btn-arrow2 svg {
+            width: 14px;
+            height: 14px;
+            color: #1e2127;
+        }
+
+        /* Form Bar */
+        .form-bar {
+            position: relative;
+            z-index: 10;
+
+            /* moved slightly left + up */
+            margin: -240px auto 0 100px;
+
+            width: calc(100% - 40px);
+            max-width: 1330px;
+
+            background: rgba(27, 58, 92, 0.959);
+
+            backdrop-filter: blur(20px);
+
+            padding: 28px 32px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .15);
+
+            animation: fadeUp .5s .8s both;
+        }
+
+        .form-bar h5 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            align-items: center;
+        }
+
+        /* button center */
+        .btn-form-submit {
+            grid-column: 2;
+            justify-self: center;
+        }
+
+        .form-input,
+        .form-select {
+            height: 52px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(255, 255, 255, .92);
+            color: #111827;
+            padding: 0 18px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: .25s ease;
+            width: 100%;
+        }
+
+        .form-input::placeholder {
+            color: #6b7280;
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            background: #fff;
+            border-color: #1796e6;
+            box-shadow: 0 0 0 4px rgba(23, 150, 230, .12);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 42px;
+            cursor: pointer;
+        }
+
+        .btn-form-submit {
+            height: 52px;
+            padding: 0 24px;
+            background: linear-gradient(135deg, #1796e6, #1565C0);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: .3s ease;
+        }
+
+        .btn-form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(23, 150, 230, .25);
+        }
+
+        .btn-form-submit .arr {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-form-submit .arr svg {
+            width: 14px;
+            height: 14px;
+            color: #1565C0;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            background: #fff;
+            border-bottom: 1px solid #e8edf3;
+            padding: 28px 0;
+            animation: fadeUp .5s .9s both;
+        }
+
+        .stats-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .stat-ico {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #EBF4FB;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-ico svg {
+            width: 24px;
+            height: 24px;
+            color: var(--blue);
+        }
+
+        .stat-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #0f1c2e;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+
+        .stat-label {
+            font-size: 0.78rem;
+            color: #1e2127;
+            font-weight: 500;
+        }
+
+        /* ═══════════════════════════════════════
+           SECTIONS
+        ═══════════════════════════════════════ */
+        .sec {
+            padding: 20px 0;
+        }
+
+        .sec-alt {
+            background: var(--off);
+        }
+
+        .sec-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .sec-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(3.7rem, 3.5vw, 2.6rem);
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+            color: var(--navy);
+        }
+
+        .sec-title em {
+            font-style: italic;
+            color: var(--blue-light);
+        }
+
+        .sec-body {
+            font-size: 0.92rem;
+            color: var(--muted);
+            line-height: 1.75;
+            font-weight: 400;
+        }
+
+
+
+        /* Buttons */
+        .btn-blue {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: #fff;
+            border-radius: 50px;
+            padding: 13px 26px;
+            font-size: .87rem;
+            font-weight: 700;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: all .3s var(--ease);
+        }
+
+        .btn-blue:hover {
+            background: var(--navy);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline-blue {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--blue);
+            border: 1px solid var(--blue);
+            border-radius: 50px;
+            padding: 7px 16px;
+            font-size: .87rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .3s var(--ease);
+        }
+
+        .btn-outline-blue:hover {
+            background: var(--blue);
+            color: #fff;
+        }
+
+
+        /* ═══════════════════════════════════════
+           TIMELINE
+        ═══════════════════════════════════════ */
+        .tl-wrap {
+            position: relative;
+            padding-left: 0;
+        }
+
+        .tl-line {
+            position: absolute;
+            left: 22px;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--blue), var(--blue), transparent);
+        }
+
+        .tl-item {
+            position: relative;
+            padding: 0 0 39px 64px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: all .6s var(--ease);
+        }
+
+        .tl-item.vis {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .tl-dot {
+            position: absolute;
+            left: 12px;
+            top: 4px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid var(--blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .6rem;
+            font-weight: 700;
+            color: var(--blue);
+            z-index: 1;
+            transition: all .35s;
+        }
+
+        .tl-item:hover .tl-dot {
+            background: var(--blue);
+            color: #fff;
+            transform: scale(1.2);
+        }
+
+        .tl-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: var(--r);
+            padding: 14px 28px;
+            transition: all .35s var(--ease);
+        }
+
+        .tl-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(6px);
+            border-color: rgba(41, 128, 185, .25);
+        }
+
+        .tl-step {
+            font-size: .68rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 4px;
+        }
+
+        .tl-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .tl-desc {
+            font-size: .82rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ═══════════════════════════════════════
+   PREMIUM DARK COLLEGE CARDS
+═══════════════════════════════════════ */
+
+        /* Grid */
+        .row {
+            --bs-gutter-x: 22px;
+            --bs-gutter-y: 22px;
+        }
+
+        /* Card */
+        .college-card {
+            position: relative;
+
+            background:
+                linear-gradient(180deg,
+                    rgba(14, 22, 36, 0.96),
+                    rgba(8, 14, 26, 0.98));
+
+            border: 1px solid rgba(255, 255, 255, 0.07);
+
+            border-radius: 26px;
+
+            padding: 20px;
+
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            height: 100%;
+
+            overflow: hidden;
+
+            backdrop-filter: blur(18px);
+
+            transition:
+                transform .45s cubic-bezier(.22, 1, .36, 1),
+                box-shadow .4s ease,
+                border-color .4s ease;
+        }
+
+        /* glow */
+        .college-card::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(circle at top right,
+                    rgba(76, 169, 227, 0.16),
+                    transparent 35%);
+
+            opacity: 0;
+
+            transition: opacity .4s ease;
+        }
+
+        /* gradient line */
+        .college-card::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 2px;
+
+            background:
+                linear-gradient(90deg,
+                    transparent,
+                    #4ca9e3,
+                    transparent);
+        }
+
+        .college-card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(76, 169, 227, 0.28);
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.45),
+                0 10px 30px rgba(76, 169, 227, 0.10);
+        }
+
+        .college-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Logo */
+        .college-logo {
+            position: relative;
+
+            width: 84px;
+            height: 84px;
+            min-width: 84px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, 0.07),
+                    rgba(255, 255, 255, 0.02));
+
+            border: 1px solid rgba(255, 255, 255, 0.06);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            overflow: hidden;
+
+            padding: 10px;
+
+            transition:
+                transform .4s ease,
+                border-color .4s ease;
+        }
+
+        .college-card:hover .college-logo {
+            transform: scale(1.05);
+
+            border-color: rgba(76, 169, 227, 0.24);
+        }
+
+        .college-logo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+        }
+
+        /* Content */
+        .college-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .college-info h3 {
+            font-size: 1rem;
+            font-weight: 600;
+
+            margin: 0 0 8px;
+
+            color: #ffffff;
+
+            line-height: 1.5;
+
+            letter-spacing: -.02em;
+        }
+
+        .college-info p {
+            margin: 0;
+
+            font-size: .82rem;
+
+            color: rgba(255, 255, 255, 0.58);
+
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        /* Button */
+        .apply-btn {
+            position: relative;
+
+            background:
+                linear-gradient(135deg,
+                    #1796e6,
+                    #4ca9e3);
+
+            min-width: 110px;
+            height: 44px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            color: #ffffff;
+
+            font-size: .82rem;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+
+            overflow: hidden;
+
+            transition:
+                transform .35s ease,
+                box-shadow .35s ease;
+        }
+
+        /* shine */
+        .apply-btn::before {
+            content: "";
+
+            position: absolute;
+            top: 0;
+            left: -120%;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.35),
+                    transparent);
+
+            transition: left .7s ease;
+        }
+
+        .apply-btn:hover::before {
+            left: 120%;
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 24px rgba(23, 150, 230, 0.35);
+
+            color: #fff;
+        }
+
+        /* Mobile */
+        @media (max-width: 767px) {
+
+            .college-card {
+                padding: 16px;
+                gap: 14px;
+
+                border-radius: 22px;
+            }
+
+            .college-logo {
+                width: 66px;
+                height: 66px;
+                min-width: 66px;
+
+                border-radius: 18px;
+            }
+
+            .college-info h3 {
+                font-size: .92rem;
+            }
+
+            .college-info p {
+                font-size: .74rem;
+            }
+
+            .apply-btn {
+                min-width: 95px;
+                height: 40px;
+
+                font-size: .75rem;
+            }
+        }
+
+        /* Extra Small Mobile */
+        @media (max-width: 480px) {
+
+            .college-card {
+                flex-wrap: wrap;
+            }
+
+            .college-info {
+                width: calc(100% - 80px);
+            }
+
+            .apply-btn {
+                width: 100%;
+                margin-top: 12px;
+            }
+        }
+
+        /* ═══════════════════════════════════════
+           BLOG
+        ═══════════════════════════════════════ */
+        .blog-card {
+            background: #fff;
+            border-radius: var(--r);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all .4s var(--ease);
+            height: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .blog-thumb {
+            height: 180px;
+            background: linear-gradient(135deg, var(--sky-mid), #EBF5FB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+        }
+
+        .blog-body {
+            padding: 22px;
+        }
+
+        .blog-date {
+            font-size: .72rem;
+            color: var(--light);
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .blog-title {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .blog-snip {
+            font-size: .82rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: .8rem;
+            font-weight: 700;
+            color: var(--blue);
+            text-decoration: none;
+            margin-top: 14px;
+            transition: gap .25s;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+            color: var(--navy);
+        }
+
+        /* ═══════════════════════════════════════
+           FAQ
+        ═══════════════════════════════════════ */
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 22px 0;
+            cursor: pointer;
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .faq-q {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            transition: color .25s;
+        }
+
+        .faq-item:hover .faq-q {
+            color: var(--blue);
+        }
+
+        .faq-tog {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: var(--muted);
+            flex-shrink: 0;
+            transition: all .3s;
+            background: #fff;
+        }
+
+        .faq-item.open .faq-tog {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+            transform: rotate(45deg);
+        }
+
+        .faq-ans {
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.7;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .5s var(--ease), padding .3s;
+        }
+
+        .faq-item.open .faq-ans {
+            max-height: 260px;
+            padding-top: 14px;
+        }
+
+        /* ═══════════════════════════════════════
+           CTA
+        ═══════════════════════════════════════ */
+        .cta-sec {
+            background: linear-gradient(90deg, rgb(12, 48, 85) 0%, rgba(0, 69, 115, 0) 100%), url('Media/66979.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-h {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 4.5vw, 3.6rem);
+            font-weight: 600;
+            letter-spacing: -.03em;
+            color: #fff;
+            line-height: 1.1;
+        }
+
+        .cta-h em {
+            font-style: italic;
+            color: #b5d9e7;
+        }
+
+        .pill-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1.5px solid rgba(255, 255, 255, .25);
+            border-radius: 50px;
+            padding: 6px 14px;
+            font-size: .75rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .8);
+            margin-bottom: 20px;
+        }
+
+        /* ═══════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════ */
+        .footer {
+            background: #EBF5FB;
+            padding: 68px 22px;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .footer-left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .footer-right {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+            gap: 45px;
+        }
+
+        .footer-item {
+            min-width: 140px;
+        }
+
+        .ft-h {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--navy-light);
+            margin-bottom: 10px;
+        }
+
+        .ft-contact {
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.88);
+            line-height: 1.7;
+        }
+
+        /* ═══════════════════════════════════════
+           ANIMATIONS
+        ═══════════════════════════════════════ */
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .75s var(--ease), transform .75s var(--ease);
+        }
+
+        .reveal.vis {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══════════════════════════════════════
+           RESPONSIVE
+        ═══════════════════════════════════════ */
+        @media (max-width: 991px) {
+            .hbg {
+                display: flex;
+            }
+
+            .nav-links-wrap {
+                display: none !important;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, .97);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 24px 28px;
+                gap: 18px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: var(--shadow-md);
+            }
+
+            .nav-links-wrap.open {
+                display: flex !important;
+            }
+
+            .hero-bg-img {
+                width: 100%;
+                opacity: .15;
+            }
+
+            .hero-wrap {
+                padding: 100px 20px 0;
+                min-height: auto;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .btn-form-submit {
+                grid-column: 1 / -1;
+            }
+
+            .stats-inner {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sch-hero-card {
+                padding: 32px;
+            }
+
+            .footer-wrapper {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 30px;
+            }
+
+            .footer-left {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .footer-right {
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero {
+                padding-bottom: 60px;
+            }
+
+            .hero-h1 {
+                font-size: 1.8rem;
+            }
+
+            .form-bar {
+                width: calc(100% - 20px);
+                padding: 18px;
+                border-radius: 16px;
+                margin-top: -20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .testi-card {
+                width: 290px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                min-height: 0vh;
+            }
+
+            .hero-h1 {
+                font-size: 3rem;
+            }
+
+            .stats-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .hero-bg-img {
+                width: 100%;
+                background-position: 80% center;
+            }
+
+            .hero-bg-img::after {
+                background: linear-gradient(to bottom,
+                        rgb(240, 247, 255) 5%,
+                        rgb(240, 247, 255) 35%,
+                        rgb(240, 247, 255) 65%,
+                        rgb(240, 247, 255) 100%);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ════════════════════════════
+     NAVIGATION
+    ════════════════════════════ -->
+    <nav class="site-nav" id="nav">
+        <div class="container-fluid px-5">
+            <div class="d-flex align-items-center justify-content-between position-relative">
+                <a href="#" class="nav-brand">
+                    <img src="Media/BangaloreStudy_WLogo.svg" alt="Learntech logo">
+                </a>
+                <div class="nav-links-wrap" id="navLinks">
+                    <a href="#hero" class="nav-link-c">Home</a>
+                    <a href="#why" class="nav-link-c">Why Us?</a>
+                    <a href="#courses" class="nav-link-c">MBBS Details</a>
+                    <a href="#scope" class="nav-link-c">Scope</a>
+                    <a href="#colleges" class="nav-link-c">Top Colleges</a>
+                    <a href="#process" class="nav-link-c">Admissions</a>
+                    <a href="#faq" class="nav-link-c">FAQs</a>
+                    <a href="#apply" class="btn-nav">Contact Us</a>
+                </div>
+                <button class="hbg" id="hbg" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ════════════════════════════
+     HERO SECTION
+    ════════════════════════════ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-img"></div>
+        <div class="hero-wrap">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" />
+                        <path d="M9 9h6M9 12h6M9 15h4" />
+                    </svg>
+                    Admissions Open for 2026-27
+                </div>
+                <h1 class="hero-h1">
+                    MBBS Admissions in Karnataka <span class="accent">2026–27</span>
+                </h1>
+                <div class="hero-h1-under"></div>
+                <p class="hero-sub">
+                    Get detailed insights into MBBS admissions in Karnataka, including top colleges, eligibility
+                    criteria, and counselling process.
+                </p>
+                <div class="hero-btns">
+                    <a href="#apply" class="btn-primary">
+                        <span>Explore Course</span>
+                        <div class="btn-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="2.5">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </a>
+                    <a href="#process" class="btn-ghost">
+                        <span>Connect With Our Experts</span>
+                        <div class="btn-arrow2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="2.5">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════
+     FORM BAR
+    ════════════════════════════ -->
+    <div class="form-bar">
+        <h5>Fill Out the Form & Get Assistance With the 2026-27 MBBS Admission Process</h5>
+        <form class="form-row" onsubmit="return handleSubmit(event)">
+            <input class="form-input" type="text" placeholder="Full Name:" required />
+            <input class="form-input" type="email" placeholder="Email Address:" required />
+            <input class="form-input" type="tel" placeholder="Phone No:" required />
+            <select class="form-select" required>
+                <option value="" disabled selected>Select State</option>
+                <option>Karnataka</option>
+                <option>Tamil Nadu</option>
+                <option>Andhra Pradesh</option>
+                <option>Telangana</option>
+                <option>Kerala</option>
+                <option>Maharashtra</option>
+                <option>Other</option>
+            </select>
+            <input class="form-input" type="email" placeholder="NEET Score" required />
+            <input class="form-input" type="tel" placeholder="Message (Optional):" required />
+
+            <button type="submit" class="btn-form-submit">
+                Submit
+                <div class="arr">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                </div>
+            </button>
+        </form>
+    </div>
+
+    <!-- ════════════════════════════
+     STATS ROW
+    ════════════════════════════ -->
+    <div class="stats-row">
+        <div class="stats-inner">
+            <div class="stat-item">
+                <div class="stat-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="1.8">
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="stat-num">5,000+</div>
+                    <div class="stat-label">Students Guided</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="1.8">
+                        <path d="M3 21h18M9 21V7l3-4 3 4v14M9 21V11h6v10" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="stat-num">150+</div>
+                    <div class="stat-label">Top Medical Colleges</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="blue" stroke-width="1.8">
+                        <circle cx="12" cy="8" r="6" />
+                        <path
+                            d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="stat-num">25+</div>
+                    <div class="stat-label">Years of Expertise</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-ico">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <polygon
+                            points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                </div>
+                <div>
+                    <div class="stat-num">98%</div>
+                    <div class="stat-label">Student Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- ════════════════════════════
+     ABOUT / IMPACT STRIP
+════════════════════════════ -->
+    <section class="impact-strip-sec" id="about">
+
+        <div class="container-fluid" style="margin: 20px auto;">
+
+            <!-- heading -->
+            <div class="impact-strip-head reveal">
+                <span class="impact-strip-label">OUR IMPACT</span>
+
+                <h2 class="impact-strip-title">
+                    Begin Your Journey Towards a <span>Career in Medicine</span>
+                </h2>
+
+                <!-- <p class="impact-strip-desc">
+                    Our expert advisors ensure you understand every cost
+                    component, compare colleges effectively, and make informed financial decisions, thus assisting you
+                    in securing<br> a seat in one of the best private medical colleges in Karnataka with low fee
+                    structure.
+                </p> -->
+            </div>
+
+            <!-- row -->
+            <div class="impact-strip-wrap">
+
+                <!-- item -->
+                <div class="impact-item reveal">
+                    <div class="impact-item-icon">
+                        <img src="icons/Icon_01.svg" alt="">
+                    </div>
+
+                    <h3>Secure Admission to Premier Medical Colleges</h3>
+
+                    <p>
+                        If you have qualified NEET-UG, take the next step towards joining reputed MBBS colleges in
+                        Karnataka. Our expert guidance helps simplify the admission journey, especially for students
+                        seeking opportunities in Bangalore’s leading institutions.
+
+
+                    </p>
+                </div>
+
+                <!-- item -->
+                <div class="impact-item reveal">
+                    <div class="impact-item-icon">
+                        <img src="icons/Icon_02.svg" alt="">
+                    </div>
+
+                    <h3>Understand the Fee <br> Structure</h3>
+
+                    <p>
+                        Planning your medical education becomes easier with clear information on tuition costs. We
+                        provide complete clarity on MBBS fee structures across government, private, management quota,
+                        and NRI quota seats in Karnataka.
+
+                    </p>
+                </div>
+
+                <!-- item -->
+                <div class="impact-item reveal">
+                    <div class="impact-item-icon">
+                        <img src="icons/Icon_03.svg" alt="">
+                    </div>
+
+                    <h3>Navigate Counselling with Confidence</h3>
+
+                    <p>
+                        The MBBS counselling process can be complex, but we make it straightforward by assisting you at
+                        every stage, from registration and option entry to seat allotment and final admission
+                        formalities.
+
+                    </p>
+                </div>
+
+                <!-- item -->
+                <div class="impact-item reveal">
+                    <div class="impact-item-icon">
+                        <img src="icons/Icon_04.svg" alt="">
+                    </div>
+
+                    <h3>Discover Financial Support Options</h3>
+
+                    <p>
+                        Medical education is a significant investment, and we help you identify scholarship
+                        opportunities offered by institutions, government bodies, and private organisations to make your
+                        MBBS aspirations more achievable.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        /* ═══════════════════════════════
+   PREMIUM IMPACT STRIP
+═══════════════════════════════ */
+        .impact-item-icon img {
+            width: 132px;
+            height: 132px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .impact-strip-sec {
+            position: relative;
+            padding: 40px 0;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        /* heading */
+        .impact-strip-head {
+            max-width: 1400px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .impact-strip-desc {
+            margin: 0 auto;
+        }
+
+        .impact-strip-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+            color: #1796e6;
+            margin-bottom: 28px;
+        }
+
+        .impact-strip-title {
+            font-size: clamp(3rem, 6vw, 3rem);
+            line-height: .95;
+            font-weight: 600;
+            letter-spacing: -.06em;
+
+            color: #0f172a;
+
+            margin-bottom: 15px;
+        }
+
+        .impact-strip-title span {
+            background: linear-gradient(135deg, #1796e6, #63c6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .impact-strip-desc {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #1e2127;
+        }
+
+        /* strip row */
+        .impact-strip-wrap {
+            position: relative;
+            z-index: 2;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        }
+
+        /* center everything */
+        .impact-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* center logo */
+        .impact-item-icon {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* cleaner paragraph width */
+        .impact-item p {
+            color: #003a53c0 !important;
+            font-weight: 500;
+            margin: 0 auto;
+        }
+
+        /* item */
+        .impact-item {
+            position: relative;
+
+            padding: 15px 15px;
+
+            transition:
+                transform .45s cubic-bezier(.22, 1, .36, 1),
+                background .45s ease;
+        }
+
+        /* right border */
+        .impact-item:not(:last-child)::after {
+            content: "";
+
+            position: absolute;
+            top: 50%;
+            right: 0;
+
+            width: 2px;
+            height: 70%;
+
+            transform: translateY(-50%);
+
+            background:
+                linear-gradient(to bottom,
+                    transparent,
+                    rgba(0, 80, 121, 0.196),
+                    transparent);
+        }
+
+        /* hover */
+        .impact-item:hover {
+            transform: translateY(-6px);
+            background:
+                radial-gradient(circle at center,
+                    rgba(141, 202, 240, 0.142),
+                    rgba(0, 0, 0, 0));
+        }
+
+        /* icon */
+        .impact-item-icon {
+            width: 78px;
+            height: 78px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+
+            transition:
+                transform .45s ease,
+                border-color .45s ease;
+        }
+
+        .impact-item:hover .impact-item-icon {
+            transform: rotate(-6deg) scale(1.05);
+            border-color: rgba(23, 150, 230, 0.2);
+        }
+
+        /* title */
+        .impact-item h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            letter-spacing: -.03em;
+
+            color: #001d60;
+
+            margin-bottom: 16px;
+        }
+
+
+        .impact-item h3::after {
+            content: '';
+
+            display: block;
+
+            width: 90px;
+            height: 2px;
+
+            margin: 18px auto 0;
+
+            border-radius: 100px;
+
+            background: linear-gradient(90deg, #ffffff, #4ca9e3, #ffffff);
+        }
+
+        /* para */
+        .impact-item p {
+            font-size: .9rem;
+            line-height: 1.4;
+            font-weight: 400;
+            color: #1e2127;
+        }
+
+        /* tablet */
+        @media(max-width:991px) {
+
+            .impact-strip-wrap {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .impact-item:nth-child(2)::after {
+                display: none;
+            }
+
+            .impact-item {
+                border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+            }
+
+            .impact-strip-title {
+                font-size: 4rem;
+            }
+        }
+
+        /* mobile */
+        @media(max-width:576px) {
+
+            .impact-strip-sec {
+                padding: 30px 0;
+            }
+
+            .impact-strip-head {
+                margin-bottom: 55px;
+            }
+
+            .impact-strip-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .impact-item {
+                padding: 38px 10px;
+            }
+
+            .impact-item::after {
+                display: none !important;
+            }
+
+            .impact-item:not(:last-child) {
+                border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+            }
+
+            .impact-strip-title {
+                font-size: 2.2rem;
+                line-height: 1;
+            }
+
+            .impact-strip-desc {
+                font-size: .95rem;
+                line-height: 1.8;
+            }
+
+            .impact-item-icon {
+                width: 68px;
+                height: 68px;
+
+                border-radius: 20px;
+
+                font-size: 1.7rem;
+
+                margin-bottom: 24px;
+            }
+
+            .impact-item h3 {
+                font-size: 1.15rem;
+            }
+
+            .impact-item p {
+                font-size: .92rem;
+                line-height: 1.8;
+            }
+        }
+    </style>
+
+
+
+    <section class="course-sec">
+
+        <div class="container">
+
+            <div class="course-layout">
+
+                <!-- LEFT -->
+                <div class="course-content">
+
+                    <span class="course-label">
+                        COURSE OVERVIEW
+                    </span>
+
+                    <h2 class="course-title">
+                        MBBS Course <span>Details</span>
+                    </h2>
+
+                    <p class="course-desc">
+                        Medicine is one of the most respected and impactful fields in healthcare, dedicated to the
+                        prevention, diagnosis, and treatment of diseases while improving overall patient well-being. It
+                        is a highly sought-after profession that combines scientific knowledge, clinical expertise, and
+                        compassionate patient care. Karnataka is home to several prestigious medical institutions that
+                        offer world-class education, advanced clinical training, and extensive hands-on exposure,
+                        preparing students to excel in the ever-evolving healthcare industry.
+
+                        The Bachelor of Medicine and Bachelor of Surgery (MBBS) is the primary undergraduate medical
+                        programme designed to build a strong foundation in medical sciences and clinical practice. The
+                        course equips students with comprehensive theoretical understanding and practical training in
+                        areas such as anatomy, physiology, pathology, pharmacology, surgery, and patient care. Through
+                        rigorous academic learning and hospital-based clinical exposure, students develop the essential
+                        skills required to diagnose illnesses and deliver effective treatment.
+
+                        For students aspiring to pursue a career in medicine after qualifying NEET-UG, understanding the
+                        MBBS course structure, eligibility criteria, and admission process is crucial. With the right
+                        guidance, candidates can make informed decisions and secure admission to reputed medical
+                        colleges in Karnataka, setting the stage for a rewarding career in the healthcare sector.
+
+                    </p>
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="course-table-wrap">
+
+                    <div class="course-row">
+                        <div class="course-left">Course Name</div>
+
+                        <div class="course-right">
+                            Bachelor of Medicine and Bachelor of Surgery (MBBS)
+                        </div>
+                    </div>
+
+                    <div class="course-row">
+                        <div class="course-left">Course Level</div>
+
+                        <div class="course-right highlight">
+                            Undergraduate (UG)
+                        </div>
+                    </div>
+
+                    <div class="course-row">
+                        <div class="course-left">Duration</div>
+
+                        <div class="course-right">
+                            <strong>5.5 Years</strong><br>
+                            (4.5 Year Academic Study + 1 Year Internship)
+                        </div>
+                    </div>
+
+                    <div class="course-row">
+                        <div class="course-left">Entrance Exam</div>
+
+                        <div class="course-right highlight">
+                            NEET-UG
+                        </div>
+                    </div>
+
+                    <div class="course-row">
+                        <div class="course-left">MBBS Eligibility Criteria</div>
+
+                        <div class="course-right">
+                            <ul class="styled">
+                                <li>Passed 10+2/ 2nd PUC or equivalent with English and minimum 50% aggregate marks in
+                                    PCB subjects</li>
+                                <li> Qualified NEET-UG entrance exam</li>
+                            </ul>
+
+                        </div>
+                    </div>
+
+                    <div class="course-row">
+                        <div class="course-left">Regulatory Body</div>
+
+                        <div class="course-right highlight">
+                            National Medical Commission (NMC)
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        /* ═══════════════════════════════
+   PREMIUM COURSE SECTION
+═══════════════════════════════ */
+
+        .course-sec {
+            padding: 40px 0;
+            background:
+                radial-gradient(circle at top left,
+                    rgba(23, 150, 230, 0.05),
+                    transparent 30%),
+                #ffffff;
+
+            overflow: hidden;
+        }
+
+        .course-layout {
+            display: grid;
+            grid-template-columns: .85fr 1.15fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* LEFT CONTENT */
+        .course-content {
+            position: sticky;
+            top: 120px;
+        }
+
+        .course-label {
+            display: inline-flex;
+            align-items: center;
+
+
+
+            font-size: .72rem;
+            font-weight: 700;
+            letter-spacing: .24em;
+            text-transform: uppercase;
+
+            color: #1796e6;
+
+            margin-bottom: 26px;
+        }
+
+        .course-title {
+            font-size: 3rem;
+            line-height: 1;
+            font-weight: 600;
+            letter-spacing: -.06em;
+
+            color: #081120;
+
+            margin-bottom: 28px;
+        }
+
+        .course-title span {
+            background:
+                linear-gradient(135deg,
+                    #1796e6,
+                    #63c6ff);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .course-desc {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #1e2127;
+        }
+
+        /* TABLE */
+        .course-table-wrap {
+            position: relative;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(180deg,
+                    rgba(255, 255, 255, .96),
+                    rgba(248, 251, 255, .92));
+
+            border: 1px solid rgba(15, 23, 42, 0.06);
+
+            box-shadow:
+                0 30px 80px rgba(15, 23, 42, 0.08),
+                0 10px 30px rgba(15, 23, 42, 0.04);
+
+            backdrop-filter: blur(20px);
+        }
+
+        /* subtle glow */
+        .course-table-wrap::before {
+            content: '';
+            position: absolute;
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(circle,
+                    rgba(23, 150, 230, 0.12),
+                    transparent 70%);
+
+            top: -120px;
+            right: -120px;
+
+            pointer-events: none;
+        }
+
+        /* ROW */
+        .course-row {
+            position: relative;
+
+            display: grid;
+            grid-template-columns: 230px 1fr;
+
+            transition: .4s ease;
+
+            border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+        }
+
+        .course-row:last-child {
+            border-bottom: none;
+        }
+
+        /* hover */
+        .course-row:hover {
+            background:
+                linear-gradient(90deg,
+                    rgba(23, 150, 230, 0.04),
+                    rgba(255, 255, 255, 0));
+        }
+
+        /* LEFT */
+        .course-left {
+            padding: 20px 26px;
+            font-size: 1.2rem;
+            font-weight: 600;
+
+            color: #ffffff;
+
+            background:
+                linear-gradient(135deg,
+                    #153a63,
+                    #1f5f99);
+
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+
+            display: flex;
+            align-items: center;
+        }
+
+        /* RIGHT */
+        .course-right {
+            padding: 8px 20px;
+
+            font-size: 1rem;
+            line-height: 1.9;
+
+            color: #475569;
+
+            display: flex;
+            align-items: center;
+        }
+
+        .course-right strong {
+            color: #081120;
+        }
+
+        /* highlighted text */
+        .course-right.highlight {
+            color: #1796e6;
+            font-weight: 700;
+        }
+
+        /* TABLET */
+        @media(max-width:991px) {
+
+            .course-layout {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .course-content {
+                position: relative;
+                top: 0;
+            }
+
+            .course-title {
+                font-size: 2.5rem;
+            }
+
+            .course-desc {
+                max-width: 100%;
+            }
+        }
+
+        /* MOBILE */
+        @media(max-width:576px) {
+
+            .course-sec {
+                padding: 30px 0;
+            }
+
+            .course-layout {
+                gap: 40px;
+            }
+
+            .course-title {
+                font-size: 2.2rem;
+            }
+
+            .course-desc {
+                font-size: .95rem;
+                line-height: 1.9;
+            }
+
+            .course-table-wrap {
+                border-radius: 24px;
+            }
+
+            .course-row {
+                grid-template-columns: 1fr;
+            }
+
+            .course-left {
+                border-right: none;
+
+                padding: 16px 20px;
+
+                justify-content: center;
+                text-align: center;
+            }
+
+            .course-right {
+                padding: 18px 20px;
+
+                font-size: .92rem;
+                line-height: 1.8;
+            }
+        }
+    </style>
+
+
+    <!-- ════════════════════════════
+     MINIMAL FLOATING CTA
+════════════════════════════ -->
+    <section class="mini-cta-sec">
+
+        <div class="container">
+
+            <div class="mini-cta-wrap">
+
+                <!-- left -->
+                <div class="mini-cta-content">
+
+                    <!-- <span class="mini-cta-tag">
+                    2025–26 Admissions Open
+                </span> -->
+
+                    <h2>
+                        Shape a Career That Makes a <span>Difference</span>
+                    </h2>
+
+                    <p>
+                        Access trusted guidance on MBBS admissions, counselling procedures, seat allocation updates, and
+                        key deadlines for 2026–27.
+
+                    </p>
+
+                </div>
+
+                <!-- right -->
+                <a href="#apply" class="mini-cta-btn">
+
+                    <span>Connect with Our Experts</span>
+
+                    <div class="mini-cta-arrow">
+                        ➤
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <style>
+        /* ═══════════════════════════════
+   MINI CTA
+═══════════════════════════════ */
+
+        .mini-cta-sec {
+            padding: 10px 0;
+            background: #fff;
+        }
+
+        .mini-cta-wrap {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+
+            padding: 42px 50px;
+
+            border-radius: 32px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(135deg,
+                    #081120 0%,
+                    #0d1f38 100%);
+
+            box-shadow:
+                0 20px 60px rgba(8, 17, 32, 0.12);
+        }
+
+        /* glow */
+        .mini-cta-wrap::before {
+            content: '';
+
+            position: absolute;
+
+            width: 260px;
+            height: 260px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(circle,
+                    rgba(23, 150, 230, 0.25),
+                    transparent 70%);
+
+            top: -120px;
+            right: -100px;
+
+            pointer-events: none;
+        }
+
+        /* content */
+        .mini-cta-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 700px;
+        }
+
+        .mini-cta-tag {
+            display: inline-flex;
+            align-items: center;
+
+            padding: 10px 16px;
+
+            border-radius: 100px;
+
+            background:
+                rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.08);
+
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+
+            color: #8fd6ff;
+
+            margin-bottom: 20px;
+        }
+
+        .mini-cta-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1;
+            font-weight: 700;
+            letter-spacing: -.05em;
+
+            color: #fff;
+
+            margin-bottom: 18px;
+        }
+
+        .mini-cta-content h2 span {
+            background:
+                linear-gradient(135deg,
+                    #63c6ff,
+                    #ffffff);
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .mini-cta-content p {
+            font-size: 1rem;
+            line-height: 1.9;
+
+            color: rgba(255, 255, 255, 0.7);
+
+            margin: 0;
+        }
+
+        /* button */
+        .mini-cta-btn {
+            position: relative;
+            z-index: 2;
+
+            min-width: 190px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+
+            padding: 10px 10px 10px 26px;
+
+            border-radius: 100px;
+
+            background: #fff;
+
+            text-decoration: none;
+
+            transition:
+                transform .4s cubic-bezier(.22, 1, .36, 1),
+                box-shadow .4s ease;
+        }
+
+        .mini-cta-btn span {
+            font-size: 1.1rem;
+            font-weight: 700;
+
+            color: #081120;
+        }
+
+        .mini-cta-arrow {
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(135deg,
+                    #1796e6,
+                    #63c6ff);
+
+            color: #fff;
+
+            font-size: 1rem;
+            font-weight: 700;
+
+            transition: transform .35s ease;
+        }
+
+        .mini-cta-btn:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        .mini-cta-btn:hover .mini-cta-arrow {
+            transform: rotate(-12deg);
+        }
+
+        /* tablet */
+        @media(max-width:991px) {
+
+            .mini-cta-wrap {
+                flex-direction: column;
+                align-items: flex-start;
+
+                padding: 40px;
+            }
+        }
+
+        /* mobile */
+        @media(max-width:576px) {
+
+            .mini-cta-sec {
+                padding: 40px 0;
+            }
+
+            .mini-cta-wrap {
+                padding: 34px 24px;
+
+                border-radius: 24px;
+            }
+
+            .mini-cta-content h2 {
+                font-size: 2rem;
+            }
+
+            .mini-cta-content p {
+                font-size: .94rem;
+                line-height: 1.8;
+            }
+
+            .mini-cta-btn {
+                width: 100%;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 576px) {
+
+            .mini-cta-btn {
+                padding: 10px 10px 10px 18px;
+                gap: 12px;
+            }
+
+            .mini-cta-btn span {
+                font-size: .92rem;
+            }
+
+            .mini-cta-arrow {
+                width: 40px;
+                height: 40px;
+
+                font-size: .85rem;
+            }
+        }
+    </style>
+
+
+
+    <section class="mbbs-section" id="syllabus">
+        <div class="mbbs-inner">
+
+            <!-- heading -->
+            <div class="impact-strip-head reveal">
+                <span class="impact-strip-label">OUR IMPACT</span>
+
+                <h2 class="impact-strip-title">
+                    MBBS <span>Syllabus</span>
+                </h2>
+
+                <p class="impact-strip-desc">
+                    The MBBS syllabus in India is designed to provide students with a strong foundation in medical
+                    sciences along with extensive clinical training. The 5.5-year programme consists of 4.5 years of
+                    academic study divided into multiple phases, followed by a one-year compulsory rotatory internship
+                    that offers hands-on experience across various medical departments.
+                    <br>
+                    The curriculum is structured to help students develop in-depth knowledge of human anatomy,
+                    physiology, pathology, pharmacology, surgery, and clinical medicine while strengthening their
+                    diagnostic and patient-care skills. Given below is a detailed year-wise breakdown of the MBBS course
+                    subjects covered throughout the programme.
+
+                </p>
+            </div>
+
+            <div class="mbbs-grid">
+
+                <div class="mbbs-card reveal">
+                    <div class="mbbs-card-head">
+
+                        <h3 class="mbbs-col-title">⮚ Pre-Clinical</h3>
+
+                    </div>
+                    <div class="mbbs-card-body">
+                        <ul class="mbbs-list">
+                            <li><span class="mbbs-dot"></span>Anatomy</li>
+                            <li><span class="mbbs-dot"></span>Physiology</li>
+                            <li><span class="mbbs-dot"></span>Biochemistry</li>
+                            <li><span class="mbbs-dot"></span>Foundation Course</li>
+                            <li><span class="mbbs-dot"></span>AETCOM</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mbbs-card reveal">
+                    <div class="mbbs-card-head">
+
+                        <h3 class="mbbs-col-title">⮚ Para-Clinical</h3>
+
+                    </div>
+                    <div class="mbbs-card-body">
+                        <ul class="mbbs-list">
+                            <li><span class="mbbs-dot"></span>Pathology</li>
+                            <li><span class="mbbs-dot"></span>Pharmacology</li>
+                            <li><span class="mbbs-dot"></span>Microbiology</li>
+                            <li><span class="mbbs-dot"></span>Forensic Medicine</li>
+                            <li><span class="mbbs-dot"></span>Community Medicine</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mbbs-card reveal">
+                    <div class="mbbs-card-head">
+
+                        <h3 class="mbbs-col-title">⮚ Clinical</h3>
+
+                    </div>
+                    <div class="mbbs-card-body">
+                        <ul class="mbbs-list mbbs-list-2col">
+                            <li><span class="mbbs-dot"></span>General Medicine</li>
+                            <li><span class="mbbs-dot"></span>General Surgery</li>
+                            <li><span class="mbbs-dot"></span>Obstetrics & Gynaecology</li>
+                            <li><span class="mbbs-dot"></span>Pediatrics</li>
+                            <li><span class="mbbs-dot"></span>Psychiatry</li>
+                            <li><span class="mbbs-dot"></span>Orthopaedics</li>
+                            <li><span class="mbbs-dot"></span>ENT</li>
+                            <li><span class="mbbs-dot"></span>Ophthalmology</li>
+                            <li><span class="mbbs-dot"></span>Dermatology</li>
+                            <li><span class="mbbs-dot"></span>Anaesthesiology</li>
+                            <li><span class="mbbs-dot"></span>Radiodiagnosis</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .mbbs-section {
+            padding: 72px 5%;
+            background: #f8fafc;
+        }
+
+        .mbbs-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .mbbs-head {
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 48px;
+        }
+
+        .mbbs-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #185FA5;
+            background: #E6F1FB;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .mbbs-title {
+            font-size: 30px;
+            font-weight: 800;
+            color: #0D2137;
+            margin: 0 0 14px;
+            line-height: 1.25;
+        }
+
+        .mbbs-title span {
+            color: #185FA5;
+        }
+
+        .mbbs-desc {
+            font-size: 14.5px;
+            color: #5c7080;
+            line-height: 1.75;
+            margin: 0;
+        }
+
+        .mbbs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            align-items: start;
+        }
+
+        .mbbs-card {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #dce8f3;
+            overflow: hidden;
+        }
+
+        .mbbs-card-head {
+            background: #1b3a5c;
+            padding: 22px 24px;
+        }
+
+        .mbbs-col-tag {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            background: rgba(255, 255, 255, .15);
+            color: #a8c8f0;
+        }
+
+        .mbbs-col-title {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0 0 2px;
+        }
+
+        .mbbs-col-sub {
+            font-size: 12px;
+            color: #7aa4c8;
+            margin: 0;
+        }
+
+        .mbbs-card-body {
+            padding: 20px 24px;
+        }
+
+        .mbbs-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mbbs-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 0;
+            border-bottom: 1px solid #f0f5fa;
+            font-size: 15px;
+            color: #2d3f50;
+        }
+
+        .mbbs-list li:last-child {
+            border-bottom: none;
+        }
+
+        .mbbs-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #185FA5;
+            flex-shrink: 0;
+        }
+
+        .mbbs-list-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 16px;
+        }
+
+        @media (max-width: 992px) {
+            .mbbs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .mbbs-card:last-child {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .mbbs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mbbs-card:last-child {
+                grid-column: auto;
+            }
+
+            .mbbs-list-2col {
+                grid-template-columns: 1fr;
+            }
+
+            .mbbs-title {
+                font-size: 22px;
+            }
+
+            .mbbs-section {
+                padding: 52px 5%;
+            }
+        }
+    </style>
+
+
+
+    <section class="sc-section" id="scope">
+        <div class="sc-inner">
+
+            <!-- heading -->
+            <div class="impact-strip-head reveal">
+                <span class="impact-strip-label">OUR IMPACT</span>
+
+                <h2 class="impact-strip-title">
+                    <span>Scope</span> of MBBS
+                </h2>
+
+                <p class="impact-strip-desc">
+                    The scope of MBBS in India is extensive and highly rewarding, with growing demand for qualified
+                    medical professionals across the healthcare sector. As the need for quality healthcare services
+                    continues to rise, MBBS graduates have access to diverse career opportunities in clinical practice,
+                    hospital administration, medical research, public health, and academics. Graduates can choose to
+                    begin practicing as medical professionals, pursue postgraduate specializations, contribute to
+                    medical research, or explore opportunities in healthcare management and public service. With its
+                    wide-ranging career prospects and strong long-term growth potential, MBBS remains one of the most
+                    sought-after and future-focused career paths in India.
+
+                </p>
+            </div>
+
+            <div class="sc-grid">
+
+                <div class="sc-card">
+                    <div class="sc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" width="26" height="26">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="sc-num">01</p>
+                        <h3 class="sc-card-title">Build a Career with Leading Hospitals and Healthcare Institutions</h3>
+                    </div>
+                </div>
+
+                <div class="sc-card">
+                    <div class="sc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" width="26" height="26">
+                            <rect x="2" y="7" width="20" height="14" rx="2" />
+                            <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+                            <line x1="12" y1="12" x2="12" y2="16" />
+                            <line x1="10" y1="14" x2="14" y2="14" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="sc-num">02</p>
+                        <h3 class="sc-card-title">Advance into Healthcare Administration and Hospital Leadership</h3>
+                    </div>
+                </div>
+
+                <div class="sc-card">
+                    <div class="sc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" width="26" height="26">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="sc-num">03</p>
+                        <h3 class="sc-card-title">Establish Your Own Medical Practice or Clinic</h3>
+                    </div>
+                </div>
+
+                <div class="sc-card">
+                    <div class="sc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" width="26" height="26">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="sc-num">04</p>
+                        <h3 class="sc-card-title">Serve as a Medical Officer in Defence and Armed Forces</h3>
+                    </div>
+                </div>
+
+                <div class="sc-card">
+                    <div class="sc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" width="26" height="26">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="sc-num">05</p>
+                        <h3 class="sc-card-title">Contribute to Community Healthcare through Public Health Services</h3>
+                    </div>
+                </div>
+
+                <div class="sc-card">
+                    <div class="sc-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" width="26" height="26">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6" />
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18" />
+                            <path d="M4 22h16" />
+                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22" />
+                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22" />
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="sc-num">06</p>
+                        <h3 class="sc-card-title">Pursue Postgraduate Specializations for Advanced Career Growth</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .sc-section {
+            padding: 0px 5%;
+            background: #f8fafc;
+            margin-bottom: 8%;
+        }
+
+        .sc-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .sc-head {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto 52px;
+        }
+
+        .sc-label {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: #185FA5;
+            background: #E6F1FB;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .sc-title {
+            font-size: 30px;
+            font-weight: 800;
+            color: #0D2137;
+            margin: 0 0 16px;
+            line-height: 1.25;
+        }
+
+        .sc-title span {
+            color: #185FA5;
+        }
+
+        .sc-desc {
+            font-size: 14.5px;
+            color: #5c7080;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .sc-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .sc-card {
+            background: #fff;
+            border: 1px solid #dce8f3;
+            border-radius: 16px;
+            padding: 22px 24px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        .sc-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(24, 95, 165, .1);
+        }
+
+        .sc-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            background: #1b3a5c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .sc-num {
+            font-size: 10px;
+            font-weight: 700;
+            color: #b8cfe8;
+            letter-spacing: .08em;
+            margin: 0 0 3px;
+        }
+
+        .sc-card-title {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #0D2137;
+            line-height: 1.35;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .sc-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sc-title {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sc-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sc-title {
+                font-size: 20px;
+            }
+
+            .sc-section {
+                padding: 52px 5%;
+            }
+        }
+    </style>
+
+
+
+
+   
+
+
+    <!-- ════════════════════════════
+     TOP COLLEGES
+    ════════════════════════════ -->
+    <section class="sec sec-alt my-5" id="colleges" style="background-color: rgb(226, 235, 251) !important;">
+        <div class="container">
+            <!-- heading -->
+            <div class="impact-strip-head reveal">
+                <span class="impact-strip-label">OUR IMPACT</span>
+
+                <h2 class="impact-strip-title">
+                    Top Medical Colleges in <span>Karnataka</span>
+                </h2>
+
+                <p class="impact-strip-desc">
+                    Karnataka is home to several renowned medical colleges recognised for their academic excellence,
+                    advanced infrastructure, experienced faculty, and extensive clinical training opportunities. The
+                    state hosts some of the leading medical institutions in cities such as Bangalore, Mangalore, Mysore,
+                    and Manipal, providing students with access to quality education and hands-on clinical exposure
+                    through well-equipped teaching hospitals. Many of these colleges are approved by the National
+                    Medical Commission (NMC) and affiliated with reputed universities such as RGUHS.
+                    <br><br>
+                    Presented below is a list of top medical colleges in Bangalore and other prominent cities across
+                    Karnataka for students to explore while planning their MBBS admissions for 2026–27.
+
+
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/Manipal College of Dental Sciences (MCODS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Kasturba Medical College</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/JSS Dental College & Hospital.webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>JSS Medical College</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/RV.webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Ramaiah Medical College (RMC)</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/Yenepoya Dental College.webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Yenepoya Medical College (YMC)</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Sapthagiri Institute of Medical Sciences & Research Centre (SIMSRC)</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Vydehi Institute of Medical Sciences & Research Centre</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Rajarajeswari Medical College & Hospital</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Father Muller Medical College</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>K.S. Hegde Medical Academy</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>The Oxford Medical College, Hospital & Research Centre</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>M.V.J Medical College & Research Hospital</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Akash Institute of Medical Sciences & Research Centre (AIMSRC)</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Manipal & Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3 reveal">
+                <h4>Many More..</h4>
+            </div>
+        </div>
+    </section>
+
+
+
+
+     <!-- ════════════════════════════
+     ADMISSION PROCESS
+    ════════════════════════════ -->
+    <section class="sec mb-5" id="process">
+        <div class="container">
+            <!-- heading -->
+            <div class="impact-strip-head reveal">
+                <span class="impact-strip-label"> MBBS Admissions</span>
+
+                <h2 class="impact-strip-title">
+                    From NEET Qualification to Medical College <br><span>Admission in 6 Steps</span>
+                </h2>
+
+                <p class="impact-strip-desc">
+                    A step-by-step guide to help you navigate the MBBS admission journey with clarity and confidence.
+
+
+                </p>
+            </div>
+            <div class="row g-5">
+                <div class="col-lg-7">
+                    <div class="tl-wrap">
+                        <div class="tl-line"></div>
+                        <div class="tl-item">
+                            <div class="tl-dot">01</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 01</div>
+                                <div class="tl-title">Qualify NEET-UG</div>
+                                <div class="tl-desc">Appear for the NEET-UG examination and secure the required cutoff
+                                    score to become eligible for MBBS counselling and seat allotment.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot">02</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 02</div>
+                                <div class="tl-title">Understand Eligibility & Admission Pathways</div>
+                                <div class="tl-desc">Review admission criteria, reservation norms, and the available
+                                    admission routes through All India Quota and Karnataka state counselling.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot">03</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 03</div>
+                                <div class="tl-title">Register for Counselling</div>
+                                <div class="tl-desc">Complete the counselling registration process through MCC for All
+                                    India Quota seats or KEA for Karnataka state quota, private, and deemed university
+                                    admissions.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot">04</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 04</div>
+                                <div class="tl-title">Choice Filling & Seat Selection</div>
+                                <div class="tl-desc">Select your preferred medical colleges based on NEET rank, seat
+                                    matrix, fee structure, and counselling preferences to maximise admission
+                                    opportunities.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot">05</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 05</div>
+                                <div class="tl-title">Seat Allotment & Document Verification</div>
+                                <div class="tl-desc">Once a seat is allotted, participate in document verification,
+                                    confirm your admission, and complete the required fee payment formalities.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item" style="padding-bottom:0">
+                            <div class="tl-dot">06</div>
+                            <div class="tl-card">
+                                <div class="tl-step">Step 06</div>
+                                <div class="tl-title">Report to the Allotted Medical College</div>
+                                <div class="tl-desc">Visit the assigned institution within the given deadline, submit
+                                    original documents, and complete final admission procedures to begin your MBBS
+                                    journey.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div style="position:sticky;top:100px">
+                        <div
+                            style="background:var(--navy);border-radius:var(--rl);padding:36px;color:#fff;margin-bottom:20px">
+                            <div
+                                style="font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.5;margin-bottom:18px">
+                                Documents Required</div>
+                            <ul style="list-style:none;padding:0;margin:0">
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Class 10 Marks Card / Certificate (for Date of
+                                    Birth proof)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Class 12 Marks Card
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Class 12 Passing Certificate
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Admit Card
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Scorecard / Rank Card
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>NEET-UG 2026 Application Confirmation Page
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Counselling Registration Slip / Application Form
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Seat Allotment Letter
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Valid Government-issued Photo ID Proof (Aadhaar
+                                    Card / PAN Card / Passport / Voter ID)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Transfer Certificate (TC)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Migration Certificate (for students from boards
+                                    outside Karnataka, if applicable)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Character / Conduct Certificate
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Recent Passport-size Photographs
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Category / Caste Certificate (if applicable)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Income Certificate (if applicable for
+                                    reservation or fee concession)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>EWS Certificate (if applicable)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>PwD Certificate (if applicable)
+                                </li>
+                                <li
+                                    style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
+                                    <span style="color:#1ABC9C">✓</span>Domicile / Nativity Certificate (if required for
+                                    state quota admissions)
+                                </li>
+                                <li style="display:flex;align-items:center;gap:10px;padding:7px 0;font-size:1rem"><span
+                                        style="color:#1ABC9C">✓</span>Medi0.9al Fitness Certificate (if required by the
+                                    allotted institution)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- ════════════════════════════
+     FAQ
+    ════════════════════════════ -->
+    <section class="sec sec-alt" id="faq">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <span class="sec-label">FAQ</span>
+                    <h2 class="impact-strip-title">
+                        Frequently<br> Asked<br> <span>Questions</span>
+                    </h2>
+                </div>
+                <div class="col-lg-8">
+                    <div class="faq-item" data-faq>
+                        <div class="faq-row">
+                            <div class="faq-q">What is the duration of the MBBS course?</div>
+                            <div class="faq-tog">+</div>
+                        </div>
+                        <div class="faq-ans">The MBBS course duration in India is 5.5 years, which includes 4.5 years of
+                            academic study followed by a 1-year compulsory rotatory internship with practical clinical
+                            training across multiple medical departments.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-faq>
+                        <div class="faq-row">
+                            <div class="faq-q">What is the eligibility criteria for MBBS admission?</div>
+                            <div class="faq-tog">+</div>
+                        </div>
+                        <div class="faq-ans">Candidates must have completed 10+2 / 2nd PUC / equivalent examination with
+                            Physics, Chemistry, Biology/Biotechnology, and English as compulsory subjects. They must
+                            also secure the minimum qualifying marks specified for their category and qualify NEET-UG
+                            for admission.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-faq>
+                        <div class="faq-row">
+                            <div class="faq-q">Is NEET mandatory for MBBS admission?
+                            </div>
+                            <div class="faq-tog">+</div>
+                        </div>
+                        <div class="faq-ans">Yes, NEET-UG is compulsory for admission to MBBS colleges in India. Without
+                            qualifying NEET, candidates are not eligible to participate in MBBS counselling or secure
+                            admission to medical colleges.
+                        </div>
+                    </div>
+                    <div class="faq-item" data-faq>
+                        <div class="faq-row">
+                            <div class="faq-q">What subjects are covered in the MBBS syllabus?</div>
+                            <div class="faq-tog">+</div>
+                        </div>
+                        <div class="faq-ans">The MBBS curriculum includes subjects such as Anatomy, Physiology,
+                            Biochemistry, Pathology, Pharmacology, Microbiology, Forensic Medicine, Community Medicine,
+                            General Medicine, General Surgery, Pediatrics, Obstetrics & Gynaecology, along with
+                            extensive clinical training.</div>
+                    </div>
+                    <div class="faq-item" data-faq>
+                        <div class="faq-row">
+                            <div class="faq-q">What are the higher study options after MBBS?</div>
+                            <div class="faq-tog">+</div>
+                        </div>
+                        <div class="faq-ans">After completing MBBS, graduates can pursue postgraduate medical programmes
+                            such as MD (Doctor of Medicine) or MS (Master of Surgery) in specialised branches like
+                            Internal Medicine, Pediatrics, Dermatology, Radiology, General Surgery, Orthopaedics, and
+                            Obstetrics & Gynaecology.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════
+     CTA SECTION
+    ════════════════════════════ -->
+    <section class="cta-sec" id="apply">
+        <div class="container position-relative">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-12 reveal">
+                    <h2 class="cta-h mb-4">Shape Smiles, Build a Brighter <br> Tomorrow</h2>
+                    <p
+                        style="font-size:1rem;color:rgba(255,255,255,.62);font-weight:300;line-height:1.7;max-width:420px;margin-bottom:36px">
+                        Start your BDS journey at Karnataka’s top dental colleges with expert admission guidance and
+                        complete application support.
+                    </p>
+                    <div class="d-flex flex-column gap-3"
+                        style="font-size:.83rem;color:rgba(255,255,255,.5);margin-bottom:36px">
+                        <div class="d-flex align-items-center gap-2"><span style="color:#1ABC9C;font-size:1rem">✓</span>
+                            Free first consultation session</div>
+                        <div class="d-flex align-items-center gap-2"><span style="color:#1ABC9C;font-size:1rem">✓</span>
+                            Response within 24 hours guaranteed</div>
+                        <div class="d-flex align-items-center gap-2"><span style="color:#1ABC9C;font-size:1rem">✓</span>
+                            No commitment required</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════
+     SCRIPTS
+    ════════════════════════════ -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+
+        // Hamburger menu
+        const hbg = document.getElementById('hbg');
+        const navLinks = document.getElementById('navLinks');
+        hbg.addEventListener('click', () => navLinks.classList.toggle('open'));
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => navLinks.classList.remove('open'));
+        });
+
+        // Navbar scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+        });
+
+       
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+
+        // FAQ accordion
+        document.querySelectorAll('[data-faq]').forEach(item => {
+            item.addEventListener('click', () => {
+                const wasOpen = item.classList.contains('open');
+                document.querySelectorAll('[data-faq]').forEach(f => f.classList.remove('open'));
+                if (!wasOpen) item.classList.add('open');
+            });
+        });
+
+        // Scroll reveal animations
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('vis');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Timeline items animation
+        const tlObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('vis');
+                    }, index * 80);
+                    tlObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.tl-item').forEach(el => tlObserver.observe(el));
+
+
+    </script>
+</body>
+
+</html>
