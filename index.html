@@ -116,6 +116,13 @@
             color: var(--blue);
         }
 
+        @media (max-width: 768px) {
+            .site-nav .container-fluid {
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+        }
+
         .btn-nav {
             background: var(--navy);
             color: #fff;
@@ -375,6 +382,7 @@
         .btn-form-submit {
             grid-column: 2;
             justify-self: center;
+            margin-top: 15px;
         }
 
         .form-input,
@@ -504,6 +512,42 @@
             font-size: 0.78rem;
             color: #1e2127;
             font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+
+            .stats-inner {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 24px 16px;
+                padding: 0 16px;
+            }
+
+            .stat-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            .stat-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-ico {
+                width: 56px;
+                height: 56px;
+            }
+
+            .stat-num {
+                font-size: 1.3rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
         }
 
         /* ═══════════════════════════════════════
@@ -696,6 +740,18 @@
             --bs-gutter-y: 22px;
         }
 
+        .college-card {
+            height: 100%;
+            min-height: 140px;
+            /* adjust if needed */
+        }
+
+
+
+        .row>div .college-card {
+            width: 100%;
+        }
+
         /* Card */
         .college-card {
             position: relative;
@@ -799,7 +855,7 @@
 
             overflow: hidden;
 
-            padding: 10px;
+            padding: 8px;
 
             transition:
                 transform .4s ease,
@@ -815,7 +871,7 @@
         .college-logo img {
             width: 100%;
             height: 100%;
-
+            border-radius: 10px;
             object-fit: contain;
         }
 
@@ -963,9 +1019,14 @@
                 width: calc(100% - 80px);
             }
 
+            .college-info h3 {
+                font-size: 1rem;
+            }
+
             .apply-btn {
-                width: 100%;
-                margin-top: 12px;
+                width: 69%;
+                margin: 12px auto 0;
+                font-size: 14px;
             }
         }
 
@@ -1058,7 +1119,7 @@
         }
 
         .faq-q {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--navy);
             transition: color .25s;
@@ -1108,7 +1169,7 @@
            CTA
         ═══════════════════════════════════════ */
         .cta-sec {
-            background: linear-gradient(90deg, rgb(12, 48, 85) 0%, rgba(0, 69, 115, 0) 100%), url('Media/66979.jpg');
+            background: linear-gradient(90deg, rgb(12, 48, 85) 0%, rgba(0, 69, 115, 0) 100%), url('Media/Banner.webp');
             background-size: cover;
             background-position: center;
             padding: 50px 0;
@@ -1219,6 +1280,7 @@
         /* ═══════════════════════════════════════
            RESPONSIVE
         ═══════════════════════════════════════ */
+
         @media (max-width: 991px) {
             .hbg {
                 display: flex;
@@ -1335,6 +1397,8 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
 
         @media(max-width:768px) {
 
@@ -1511,7 +1575,7 @@
                 </div>
                 <div>
                     <div class="stat-num">98%</div>
-                    <div class="stat-label">Student Satisfaction</div>
+                    <div class="stat-label">Student Satisfied</div>
                 </div>
             </div>
         </div>
@@ -1530,7 +1594,7 @@
 
             <!-- heading -->
             <div class="impact-strip-head reveal">
-                <span class="impact-strip-label">OUR IMPACT</span>
+                <span class="impact-strip-label">Why us</span>
 
                 <h2 class="impact-strip-title">
                     Begin Your Journey Towards a <span>Career in Medicine</span>
@@ -1640,6 +1704,12 @@
             text-align: center;
         }
 
+        @media (max-width: 768px) {
+            .impact-strip-head {
+                text-align: left;
+            }
+        }
+
         .impact-strip-desc {
             margin: 0 auto;
         }
@@ -1648,7 +1718,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 10px 20px;
+            /* padding: 10px 20px; */
             font-size: 0.72rem;
             font-weight: 700;
             letter-spacing: .24em;
@@ -1659,13 +1729,13 @@
 
         .impact-strip-title {
             font-size: clamp(3rem, 6vw, 3rem);
-            line-height: .95;
+            line-height: 1.1;
             font-weight: 600;
-            letter-spacing: -.06em;
+            letter-spacing: -.03em;
 
             color: #0f172a;
 
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .impact-strip-title span {
@@ -1708,7 +1778,7 @@
 
         /* cleaner paragraph width */
         .impact-item p {
-            color: #00202ec0 !important;
+            color: #000000c8 !important;
             margin: 0 auto;
         }
 
@@ -1949,7 +2019,7 @@
                         <div class="course-left">Duration</div>
 
                         <div class="course-right">
-                            <strong>5.5 Years</strong><br>
+                            <strong>5.5 Years </strong>
                             (4.5 Year Academic Study + 1 Year Internship)
                         </div>
                     </div>
@@ -2065,7 +2135,7 @@
         /* TABLE */
         .course-table-wrap {
             position: relative;
-
+            margin-top: 25px;
             border-radius: 20px;
 
             overflow: hidden;
@@ -2130,7 +2200,7 @@
 
         /* LEFT */
         .course-left {
-            padding: 20px 26px;
+            padding: 13px 26px;
             font-size: 1.2rem;
             font-weight: 600;
 
@@ -2193,6 +2263,9 @@
         }
 
         /* MOBILE */
+
+
+
         @media(max-width:576px) {
 
             .course-sec {
@@ -2371,11 +2444,12 @@
         }
 
         .mini-cta-content h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2rem, 5vw, 3rem);
             line-height: 1;
             font-weight: 700;
-            letter-spacing: -.05em;
-
+            letter-spacing: -.01em;
+            line-height: 3.8rem;
+            width: 800px;
             color: #fff;
 
             margin-bottom: 18px;
@@ -2491,7 +2565,13 @@
             }
 
             .mini-cta-content h2 {
-                font-size: 2rem;
+                width: 100%;
+                max-width: 100%;
+
+                font-size: 2.3rem;
+                line-height: 1.3;
+
+                word-break: break-word;
             }
 
             .mini-cta-content p {
@@ -2532,7 +2612,7 @@
 
             <!-- heading -->
             <div class="impact-strip-head reveal">
-                <span class="impact-strip-label">OUR IMPACT</span>
+                <span class="impact-strip-label">Academic Roadmap</span>
 
                 <h2 class="impact-strip-title">
                     MBBS <span>Syllabus</span>
@@ -2546,8 +2626,8 @@
                     <br>
                     The curriculum is structured to help students develop in-depth knowledge of human anatomy,
                     physiology, pathology, pharmacology, surgery, and clinical medicine while strengthening their
-                    diagnostic and patient-care skills. Given below is a detailed year-wise breakdown of the MBBS course
-                    subjects covered throughout the programme.
+                    diagnostic and patient-care skills.
+
 
                 </p>
             </div>
@@ -3169,8 +3249,9 @@
                                 </li>
                                 <li
                                     style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
-                                    <span style="color:#1ABC9C">✓</span>Income Certificate (if applicable for
-                                    reservation or fee concession)
+                                    <span style="color:#1ABC9C">✓</span>Migration Certificate (for students from boards
+                                    outside Karnataka, if applicable)
+
                                 </li>
                                 <li
                                     style="display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:0.9rem">
@@ -3249,18 +3330,19 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/Manipal College of Dental Sciences (MCODS).webp" alt="">
+                            <img src="clg-img/Kasturba Medical College (KMC)  .webp" alt="">
                         </div>
 
                         <div class="college-info">
-                            <h3>Kasturba Medical College</h3>
+                            <h3>Kasturba Medical College (KMC)</h3>
                             <p>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
                                     class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Mangalore & Manipal
+
                             </p>
                         </div>
 
@@ -3270,7 +3352,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/JSS Dental College & Hospital.webp" alt="">
+                            <img src="clg-img/Kasturba Medical College (KMC).webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3281,7 +3363,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Mysore
                             </p>
                         </div>
 
@@ -3291,7 +3373,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/RV.webp" alt="">
+                            <img src="clg-img/Ramaiah Medical College (RMC).webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3302,7 +3384,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Bangalore
                             </p>
                         </div>
 
@@ -3312,7 +3394,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/Yenepoya Dental College.webp" alt="">
+                            <img src="clg-img/Yenepoya Medical College (YMC).webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3323,7 +3405,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Mangalore
                             </p>
                         </div>
 
@@ -3333,7 +3415,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                            <img src="clg-img/Sapthagiri Institute of Medical Sciences & Research Centre (SIMSRC) .webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3344,7 +3426,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Bangalore
                             </p>
                         </div>
 
@@ -3354,7 +3436,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                            <img src="clg-img/Vydehi Institute of Medical Sciences & Research Centre.webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3365,7 +3447,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Bangalore
                             </p>
                         </div>
 
@@ -3375,7 +3457,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                            <img src="clg-img/Rajarajeswari Medical College & Hospital.webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3386,7 +3468,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Bangalore
                             </p>
                         </div>
 
@@ -3396,7 +3478,28 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                            <img src="clg-img/Srinivas Institute of Medical Sciences, Mangalore.webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Srinivas Institute of Medical Sciences</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Mangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/Father Muller Medical College.webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3407,7 +3510,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Mangalore
                             </p>
                         </div>
 
@@ -3417,7 +3520,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                            <img src="clg-img/K.S. Hegde Medical Academy.webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3428,7 +3531,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Mangalore
                             </p>
                         </div>
 
@@ -3438,7 +3541,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                            <img src="clg-img/The Oxford Medical College, Hospital & Research Centre.webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3449,7 +3552,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Bangalore
                             </p>
                         </div>
 
@@ -3459,7 +3562,49 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                            <img src="clg-img/Sri Devaraj Urs Medical College, Kolar.webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>Sri Devaraj Urs Medical College</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Kolar
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/BGS Global Institute of Medical Sciences, Bangalore.webp" alt="">
+                        </div>
+
+                        <div class="college-info">
+                            <h3>BGS Global Institute of Medical Sciences</h3>
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="red"
+                                    class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
+                                </svg>
+                                Bangalore
+                            </p>
+                        </div>
+
+                        <a href="#" class="apply-btn">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="college-card">
+                        <div class="college-logo">
+                            <img src="clg-img/M.V.J Medical College & Research Hospital .webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3470,7 +3615,7 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Bangalore
                             </p>
                         </div>
 
@@ -3480,7 +3625,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="college-card">
                         <div class="college-logo">
-                            <img src="clg-img/A B Shetty Memorial Institute of Dental Sciences (ABSMIDS).webp" alt="">
+                            <img src="clg-img/Akash Institute of Medical Sciences & Research Centre (AIMSRC).webp" alt="">
                         </div>
 
                         <div class="college-info">
@@ -3491,7 +3636,8 @@
                                     <path
                                         d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6" />
                                 </svg>
-                                Manipal & Mangalore
+                                Bangalore
+
                             </p>
                         </div>
 
@@ -3500,7 +3646,7 @@
                 </div>
             </div>
             <div class="text-center mt-3 reveal">
-                <h4>Many More..</h4>
+                <h4>And Many More!</h4>
             </div>
         </div>
     </section>
@@ -3518,7 +3664,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4">
                     <span class="sec-label">FAQ</span>
-                    <h2 class="impact-strip-title">
+                    <h2 class="impact-strip-title" style="font-size: 4rem;">
                         Frequently<br> Asked<br> <span>Questions</span>
                     </h2>
                 </div>
